@@ -1,11 +1,11 @@
 # Highly-Developed Umbraco Project
 <hr>
 
-## Umbraco Documentation
+## &#9762; Umbraco Documentation
 
 • Settings  => Datatype: You can configurate all templates in Umbraco, ex: textarea, radiobox, even the Document Types.
 
-### Insert new Data type in a Document Type:
+### &#9818; Insert new Data type in a Document Type:
 <ul>
   <li>Create a Data type.</li>
   <li>Go to Document type</li>
@@ -16,7 +16,7 @@
 </ul>
 <br>
 
-### Create a New Document Type:
+### &#9818; Create a New Document Type:
 
 <ul>
   <li>Go to Settings and create a new Document Type</li>
@@ -26,26 +26,26 @@
   <li>You will see your New Document Type available.</li>
 </ul>
 
-### DEBUG: https://localhost:44301/?umbDebug=true   start a Debug mode..
+### &#9818; DEBUG: https://localhost:44301/?umbDebug=true   start a Debug mode..
 <br/>
 
 <hr>
 
-### MVC & Permissions
+### &#9818; MVC & Permissions
 
 #### Model:   Document type
 #### View:  Content => Templates + views
 #### Controller => Umbraco handle this
 
 
-### Permissions:
+### &#9818; Permissions:
 
 #### Create a Document type
 #### Create a Template to this Doc Type
 #### Set PERMISSION to "Allow as a Root" 
 
 
-## Design Process
+### &#9818; Design Process
 
 <ul>
   <li>Sketch => One Note</li>
@@ -56,7 +56,7 @@
 <br>
 
 
-### Compositions - Inheritence
+### &#9818; Compositions - Inheritence
 
 #### Create a Document Type (it will be a model)
 #### Set in Permitions as an Element Type.  ps: Never create this Document type in the Content tree.
@@ -65,7 +65,7 @@
 #### Go to Content and set the values in the new Element type.
 <br>
 
-### CDF - Client Dependency Framework
+### &#9818; CDF - Client Dependency Framework
 
 #### 1- Set
 #### @using ClientDependency.Core.Mvc
@@ -86,8 +86,11 @@
 
 #### @Html.RenderJsHere()
 
+<hr>
 
+## Partial Views
 
+  <p>In Partial Views you can create block of Elements as Header, NavBars, Footer and then you can use everywhere adding @Html.Partial("name_of_partial_view")</p>
 
 
 
