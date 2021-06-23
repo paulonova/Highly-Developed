@@ -1,0 +1,34 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ClientDependency.Core.Mvc
+@using ClientDependency.Core
+@{
+	Layout = null;
+    var homePage = Model.AncestorOrSelf<Home>();
+}
+ <!-- CSS library -->
+        @{
+            Html.RequiresCss("https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
+            
+            Html.RequiresCss("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+            
+            Html.RequiresJs("https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js");
+            Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js");
+            Html.RequiresJs("https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js");
+            Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js");
+        }
+<html>
+    <head>
+        @Html.RenderCssHere()
+        
+        
+        <body>
+           <!-- Nav goes here -->
+            @Html.Partial("NavBar")
+            
+            @RenderBody()
+            @Html.RenderJsHere()
+        </body>
+    </head>
+</html>
+
+
