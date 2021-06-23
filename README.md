@@ -82,13 +82,9 @@
 
 #### @Html.RenderCssHere()
 
-#### <!-- -**** Header comes here->
+#### @RenderBody()
 
- #### @RenderBody()
- ####
-#### <!-- -**** Footer comes here->
-
-  #### @Html.RenderJsHere()
+#### @Html.RenderJsHere()
 
 
 
