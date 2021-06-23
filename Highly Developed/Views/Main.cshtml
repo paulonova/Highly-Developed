@@ -10,11 +10,13 @@
             Html.RequiresCss("https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
             
             Html.RequiresCss("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+            Html.RequiresCss("/css/CookieConsent.css");
             
             Html.RequiresJs("https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js");
             Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js");
             Html.RequiresJs("https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js");
             Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js");
+            Html.RequiresJs("/scripts/CookieConsent.js");
         }
 <html>
     <head>
@@ -26,6 +28,14 @@
             @Html.Partial("NavBar")
             
             @RenderBody()
+           
+            <!-- Footer-->
+            @Html.Partial("Footer")
+
+            <!-- Cookies -->
+            @Html.Partial("CookiesConsent")
+            
+            
             @Html.RenderJsHere()
         </body>
     </head>
