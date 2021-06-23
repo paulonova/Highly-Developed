@@ -31,18 +31,18 @@
 
 <hr>
 
-## MVC & Permissions
+### MVC & Permissions
 
-### Model:   Document type
-### View:  Content => Templates + views
-### Controller => Umbraco handle this
+#### Model:   Document type
+#### View:  Content => Templates + views
+#### Controller => Umbraco handle this
 
 
-## Permissions:
+### Permissions:
 
-### Create a Document type
-### Create a Template to this Doc Type
-### Set PERMISSION to "Allow as a Root" 
+#### Create a Document type
+#### Create a Template to this Doc Type
+#### Set PERMISSION to "Allow as a Root" 
 
 
 ## Design Process
@@ -56,39 +56,39 @@
 <br>
 
 
-## Compositions - Inheritence
+### Compositions - Inheritence
 
-### Create a Document Type (it will be a model)
-### Set in Permitions as an Element Type.  ps: Never create this Document type in the Content tree.
-### In each page, click in COMPOSITION button and add the new Element Type.
-### Go to Templates and add the @Model.Value("id-from- theelement");
-### Go to Content and set the values in the new Element type.
+#### Create a Document Type (it will be a model)
+#### Set in Permitions as an Element Type.  ps: Never create this Document type in the Content tree.
+#### In each page, click in COMPOSITION button and add the new Element Type.
+#### Go to Templates and add the @Model.Value("id-from- theelement");
+#### Go to Content and set the values in the new Element type.
 <br>
 
-## CDF - Client Dependency Framework
+### CDF - Client Dependency Framework
 
-### 1- Set
-### @using ClientDependency.Core.Mvc
-### @using ClientDependency.Core
+#### 1- Set
+#### @using ClientDependency.Core.Mvc
+#### @using ClientDependency.Core
 
-## 2- Before <html> tag:
-## <!-- Third  libraries (Bootstrap, Fontawesome, JQuery, etc.. -->
-        ## @{
-           ##  Html.RequiresCss("URL ADRESS");
-            ## Html.RequiresJs("URL ADRESS");
-        ## }
+#### 2- Before <html> tag:
+#### <!-- Third  libraries (Bootstrap, Fontawesome, JQuery, etc.. -->
+        #### @{
+           ####  Html.RequiresCss("URL ADRESS");
+            #### Html.RequiresJs("URL ADRESS");
+        #### }
 
-## 3- In <Body> tag:
+#### 3- In <Body> tag:
 
-## @Html.RenderCssHere()
+#### @Html.RenderCssHere()
 
-## <!-- -**** Header comes here->
+#### <!-- -**** Header comes here->
 
- ## @RenderBody()
- 
-## <!-- -**** Footer comes here->
+ #### @RenderBody()
+ ####
+#### <!-- -**** Footer comes here->
 
-  ## @Html.RenderJsHere()
+  #### @Html.RenderJsHere()
 
 
 
