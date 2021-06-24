@@ -69,24 +69,19 @@
 
 https://our.umbraco.com/Documentation/Fundamentals/Design/Stylesheets-Javascript/
 
-#### 1- Set
-#### @using ClientDependency.Core.Mvc
-#### @using ClientDependency.Core
+@using ClientDependency.Core.Mvc
+@using ClientDependency.Core
+@{
+    Html.RequiresJs("~/scripts/Script1.js", 1);
+    Html.RequiresJs("~/scripts/Script2.js", 2);
 
-#### 2- Before <html> tag:
-#### <!-- Third  libraries (Bootstrap, Fontawesome, JQuery, etc.. -->
-        #### @{
-           ####  Html.RequiresCss("URL ADRESS");
-            #### Html.RequiresJs("URL ADRESS");
-        #### }
-
-#### 3- In <Body> tag:
-
-#### @Html.RenderCssHere()
-
-#### @RenderBody()
-
-#### @Html.RenderJsHere()
+    Html.RequiresCss("~/css/style.css");
+}
+<html>
+<head>
+    @Html.RenderCssHere()
+    @Html.RenderJsHere()
+</head>
 
 <hr>
 
