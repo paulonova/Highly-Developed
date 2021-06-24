@@ -1,4 +1,5 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
 <style>
     .home-hero{
         background: no-repeat center center;
@@ -27,11 +28,11 @@
     
 </style>
 
-<div class="jumbotron jumbotron-fluid home-hero" style="background-image: url(@Model.Value("heroImage"))">
+<div class="jumbotron jumbotron-fluid home-hero" style="background-image:url('/images/hero-image.jpg')">
     <div class="overlay">
         <div class="inner">
             <div class="container">
-                <h1 class="display-4">@Model.Value("message")</h1>
+                <h1 class="display-4">@Model.Value("pageContentText")</h1>
                 <p class="lead">@Model.Value("heroSubtitle")</p>
             </div>
         </div>

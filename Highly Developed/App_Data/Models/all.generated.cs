@@ -6,8 +6,8 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "3dc8ef53d2a533a6")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "704866595bc72a39")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 
 // FILE: models.generated.cs
@@ -97,20 +97,20 @@ namespace Umbraco.Web.PublishedModels
 		public virtual string CallToActionTitle => global::Umbraco.Web.PublishedModels.CallToAction.GetCallToActionTitle(this);
 
 		///<summary>
-		/// Message: Here is the Page message
+		/// PageContentText: Here is the Page message
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		[ImplementPropertyType("message")]
-		public virtual string Message => global::Umbraco.Web.PublishedModels.PageMessage.GetMessage(this);
+		[ImplementPropertyType("pageContentText")]
+		public virtual string PageContentText => global::Umbraco.Web.PublishedModels.PageMessage.GetPageContentText(this);
 	}
 
 	// Mixin Content Type with alias "pageMessage"
 	/// <summary>Page Message</summary>
 	public partial interface IPageMessage : IPublishedElement
 	{
-		/// <summary>Message</summary>
+		/// <summary>PageContentText</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		string Message { get; }
+		string PageContentText { get; }
 	}
 
 	/// <summary>Page Message</summary>
@@ -139,15 +139,15 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Message: Here is the Page message
+		/// PageContentText: Here is the Page message
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		[ImplementPropertyType("message")]
-		public virtual string Message => GetMessage(this);
+		[ImplementPropertyType("pageContentText")]
+		public virtual string PageContentText => GetPageContentText(this);
 
-		/// <summary>Static getter for Message</summary>
+		/// <summary>Static getter for PageContentText</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		public static string GetMessage(IPageMessage that) => that.Value<string>("message");
+		public static string GetPageContentText(IPageMessage that) => that.Value<string>("pageContentText");
 	}
 
 	/// <summary>About us</summary>
@@ -176,11 +176,11 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Message: Here is the Page message
+		/// PageContentText: Here is the Page message
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		[ImplementPropertyType("message")]
-		public virtual string Message => global::Umbraco.Web.PublishedModels.PageMessage.GetMessage(this);
+		[ImplementPropertyType("pageContentText")]
+		public virtual string PageContentText => global::Umbraco.Web.PublishedModels.PageMessage.GetPageContentText(this);
 	}
 
 	/// <summary>Site Settings</summary>

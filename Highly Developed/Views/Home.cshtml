@@ -1,5 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
 @using ContentModels = Umbraco.Web.PublishedModels;
+
 @{
 	Layout = "Main.cshtml";
 }
@@ -9,5 +10,11 @@
 <!-- Call to Action -->
 @Html.Partial("Call to Action")
 
+@Html.Partial("Latest News")
 
-<h1>@Model.Value("message")</h1>
+
+
+
+
+
+
