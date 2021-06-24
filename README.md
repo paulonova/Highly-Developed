@@ -94,3 +94,21 @@ https://our.umbraco.com/Documentation/Fundamentals/Design/Stylesheets-Javascript
   Link to Source: https://our.umbraco.com/Documentation/Fundamentals/Backoffice/property-editors/Built-in-Property-Editors/Multi-Url-Picker/
 
 
+### &#9818; List of Articles
+  
+  <ul>
+    <li>Create a Single Article (Document Type)</li>
+    <li>Set all elements you need: Name, Date, Comments, Image ...</li>
+    <li>Then Create a Container for all Single Articles (Document Type)</li>
+    <li>Set as a List View</li>
+    <li>In Permissions add Single Article as a Child</li>
+    <li>In Home (document type) in Permissions, allow to create a Container For Articles</li>
+    <li>Go to Content and Create under Home a new Content "Article List"</li>
+    <li>Click in this new "Article List" and a Button to create New Articles will apear</li>
+    <li>Create a New Article</li>
+  </ul>
+  
+  
+  
+  
+  
