@@ -73,8 +73,6 @@ https://our.umbraco.com/Documentation/Fundamentals/Design/Stylesheets-Javascript
 @using ClientDependency.Core <br>
 @{ <br>
     Html.RequiresJs("~/scripts/Script1.js"); <br>
-    Html.RequiresJs("~/scripts/Script2.js"); <br>
-
     Html.RequiresCss("~/css/style.css");<br>
 } <br>
 <html> <br>
