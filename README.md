@@ -69,17 +69,21 @@
 
 https://our.umbraco.com/Documentation/Fundamentals/Design/Stylesheets-Javascript/
 
-@using ClientDependency.Core.Mvc <br>
-@using ClientDependency.Core <br>
-@{ <br>
-    Html.RequiresJs("~/scripts/Script1.js"); <br>
-    Html.RequiresCss("~/css/style.css");<br>
-} <br>
-<html> <br>
-<head> <br>
-    @Html.RenderCssHere() <br>
-    @Html.RenderJsHere() <br>
-</head> <br>
+<code>
+@using ClientDependency.Core.Mvc
+@using ClientDependency.Core
+@{
+    Html.RequiresJs("~/scripts/Script1.js", 1);
+    Html.RequiresJs("~/scripts/Script2.js", 2);
+
+    Html.RequiresCss("~/css/style.css");
+}
+<html>
+<head>
+    @Html.RenderCssHere()
+    @Html.RenderJsHere()
+</head>
+ </code>
 
 <hr>
 
