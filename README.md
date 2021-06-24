@@ -67,6 +67,8 @@
 
 ### &#9818; CDF - Client Dependency Framework
 
+https://our.umbraco.com/Documentation/Fundamentals/Design/Stylesheets-Javascript/
+
 #### 1- Set
 #### @using ClientDependency.Core.Mvc
 #### @using ClientDependency.Core
