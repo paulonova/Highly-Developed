@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    var twitterHandle = Model.MacroParameters["twitterHandle"] as string;
+}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+     <a class="twitter-timeline" href="https://twitter.com/@twitterHandle?ref_src=twsrc%5Etfw">Tweets by @twitterHandle</a> 
+    </div>
+    <div class="col">
+      <a class="twitter-timeline" href="https://twitter.com/PauloVilaNova8?ref_src=twsrc%5Etfw">Tweets by PauloVilaNova8</a> 
+    </div>
+  </div>
+</div>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
