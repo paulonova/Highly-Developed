@@ -106,8 +106,21 @@ https://our.umbraco.com/Documentation/Fundamentals/Design/Stylesheets-Javascript
     <li>Go to Content and Create under Home a new Content "Article List"</li>
     <li>Click in this new "Article List" and a Button to create New Articles will apear</li>
     <li>Create a New Article</li>
+    <li>*** To Make the Article Visible ***</li>
+    <li>Go to Home in Templates</li>
+    <li>Select "Query Builder" to get the query for the Artcles</li>
+    <li>Loop throw all Articles and display the contents</li>
+    <li>Then, you can transfer the code and create a Partial View</li>    
   </ul>
   
+  <hr>
+  
+  # Crerate a new Project inside of this project (Highly Developed.Core)
+  
+  #### After project created, go to References and select Manage nuGet.
+  #### Install UmbracoCms.Web
+  #### After installed, right click in References and AddReference.
+  #### In Project, select the project Highly Developed and Add.
   
   
   
