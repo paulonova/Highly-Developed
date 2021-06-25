@@ -117,10 +117,10 @@ https://our.umbraco.com/Documentation/Fundamentals/Design/Stylesheets-Javascript
   
   # Crerate a new Project inside of this project (Highly Developed.Core)
   
-  ### After project created, go to References and select Manage nuGet.
-  ### Install UmbracoCms.Web
-  ### After installed, right click in References and AddReference.
-  ### In Project, select the project Highly Developed and Add.
+  #### After project created, go to References and select Manage nuGet.
+  #### Install UmbracoCms.Web
+  #### After installed, right click in References and AddReference.
+  #### In Project, select the project Highly Developed and Add.
   
   
   
