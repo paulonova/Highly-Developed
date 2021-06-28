@@ -10,22 +10,31 @@
             Html.RequiresCss("https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
             
             Html.RequiresCss("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+            Html.RequiresCss("/css/main.css");
+            Html.RequiresCss("/css/RTE.css");
             Html.RequiresCss("/css/CookieConsent.css");
             
             Html.RequiresJs("https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js");
             Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js");
             Html.RequiresJs("https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js");
             Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js");
+            
+            
+            Html.RequiresJs("https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.0.0.min.js");
+            Html.RequiresJs("https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js");
+            Html.RequiresJs("https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js");
+            
             Html.RequiresJs("/scripts/CookieConsent.js");
         }
 <html>
     <head>
         @Html.RenderCssHere()
-        
-        
+    </head>   
+    
         <body>
            <!-- Nav goes here -->
             @Html.Partial("NavBar")
+            
             
             @RenderBody()
            
@@ -38,7 +47,7 @@
             
             @Html.RenderJsHere()
         </body>
-    </head>
+    
 </html>
 
 @*Client Dependency Framework (CDF)

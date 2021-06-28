@@ -6,7 +6,7 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "44d62d8fa23aa67f")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a4c59917d19825ae")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -38,7 +38,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>Home</summary>
 	[PublishedModel("home")]
-	public partial class Home : PublishedContentModel, ICallToAction, IPageMessage
+	public partial class Home : PublishedContentModel, ICallToAction, IHeroHeader
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -62,20 +62,6 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Hero Image: This is the image used as background
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		[ImplementPropertyType("heroImage")]
-		public virtual global::Umbraco.Core.Models.MediaWithCrops HeroImage => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("heroImage");
-
-		///<summary>
-		/// Hero Subtitle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		[ImplementPropertyType("heroSubtitle")]
-		public virtual string HeroSubtitle => this.Value<string>("heroSubtitle");
-
-		///<summary>
 		/// Call to Action Link: Here comes the link
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
@@ -97,90 +83,32 @@ namespace Umbraco.Web.PublishedModels
 		public virtual string CallToActionTitle => global::Umbraco.Web.PublishedModels.CallToAction.GetCallToActionTitle(this);
 
 		///<summary>
-		/// PageContentText: Here is the Page message
+		/// Hero Header Image: This is the Image Hero
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		[ImplementPropertyType("pageContentText")]
-		public virtual string PageContentText => global::Umbraco.Web.PublishedModels.PageMessage.GetPageContentText(this);
-	}
-
-	// Mixin Content Type with alias "pageMessage"
-	/// <summary>Page Message</summary>
-	public partial interface IPageMessage : IPublishedElement
-	{
-		/// <summary>PageContentText</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		string PageContentText { get; }
-	}
-
-	/// <summary>Page Message</summary>
-	[PublishedModel("pageMessage")]
-	public partial class PageMessage : PublishedElementModel, IPageMessage
-	{
-		// helpers
-#pragma warning disable 0109 // new is redundant
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		public new const string ModelTypeAlias = "pageMessage";
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		public new static IPublishedContentType GetModelContentType()
-			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<PageMessage, TValue>> selector)
-			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-#pragma warning restore 0109
-
-		// ctor
-		public PageMessage(IPublishedElement content)
-			: base(content)
-		{ }
-
-		// properties
+		[ImplementPropertyType("heroHeaderImage")]
+		public virtual global::Umbraco.Core.Models.MediaWithCrops HeroHeaderImage => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroHeaderImage(this);
 
 		///<summary>
-		/// PageContentText: Here is the Page message
+		/// Hero Header Subtitle: This is a subtitle
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		[ImplementPropertyType("pageContentText")]
-		public virtual string PageContentText => GetPageContentText(this);
-
-		/// <summary>Static getter for PageContentText</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		public static string GetPageContentText(IPageMessage that) => that.Value<string>("pageContentText");
-	}
-
-	/// <summary>About us</summary>
-	[PublishedModel("aboutUs")]
-	public partial class AboutUs : PublishedContentModel, IPageMessage
-	{
-		// helpers
-#pragma warning disable 0109 // new is redundant
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		public new const string ModelTypeAlias = "aboutUs";
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		public new static IPublishedContentType GetModelContentType()
-			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<AboutUs, TValue>> selector)
-			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-#pragma warning restore 0109
-
-		// ctor
-		public AboutUs(IPublishedContent content)
-			: base(content)
-		{ }
-
-		// properties
+		[ImplementPropertyType("heroHeaderSubtitle")]
+		public virtual string HeroHeaderSubtitle => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroHeaderSubtitle(this);
 
 		///<summary>
-		/// PageContentText: Here is the Page message
+		/// Hero Header Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
-		[ImplementPropertyType("pageContentText")]
-		public virtual string PageContentText => global::Umbraco.Web.PublishedModels.PageMessage.GetPageContentText(this);
+		[ImplementPropertyType("heroHeaderTitle")]
+		public virtual string HeroHeaderTitle => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroHeaderTitle(this);
+
+		///<summary>
+		/// Hero Overlay Color: The color to give the overlay!
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroOverlayColor")]
+		public virtual string HeroOverlayColor => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroOverlayColor(this);
 	}
 
 	/// <summary>Site Settings</summary>
@@ -419,6 +347,218 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+	}
+
+	/// <summary>Content Page</summary>
+	[PublishedModel("contentPage")]
+	public partial class ContentPage : PublishedContentModel, IHeroHeader, INavigation
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new const string ModelTypeAlias = "contentPage";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ContentPage, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public ContentPage(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Content Grid: This is a content grid layout
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("contentGrid")]
+		public virtual global::Newtonsoft.Json.Linq.JToken ContentGrid => this.Value<global::Newtonsoft.Json.Linq.JToken>("contentGrid");
+
+		///<summary>
+		/// Page Content: This is the page content
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("pageContent")]
+		public virtual global::System.Web.IHtmlString PageContent => this.Value<global::System.Web.IHtmlString>("pageContent");
+
+		///<summary>
+		/// Hero Header Image: This is the Image Hero
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroHeaderImage")]
+		public virtual global::Umbraco.Core.Models.MediaWithCrops HeroHeaderImage => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroHeaderImage(this);
+
+		///<summary>
+		/// Hero Header Subtitle: This is a subtitle
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroHeaderSubtitle")]
+		public virtual string HeroHeaderSubtitle => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroHeaderSubtitle(this);
+
+		///<summary>
+		/// Hero Header Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroHeaderTitle")]
+		public virtual string HeroHeaderTitle => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroHeaderTitle(this);
+
+		///<summary>
+		/// Hero Overlay Color: The color to give the overlay!
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroOverlayColor")]
+		public virtual string HeroOverlayColor => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroOverlayColor(this);
+
+		///<summary>
+		/// Umbraco Navi Hide: If this checked then the page wont appear in menu
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("umbracoNaviHide")]
+		public virtual bool UmbracoNaviHide => global::Umbraco.Web.PublishedModels.Navigation.GetUmbracoNaviHide(this);
+	}
+
+	// Mixin Content Type with alias "heroHeader"
+	/// <summary>Hero Header</summary>
+	public partial interface IHeroHeader : IPublishedContent
+	{
+		/// <summary>Hero Header Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		global::Umbraco.Core.Models.MediaWithCrops HeroHeaderImage { get; }
+
+		/// <summary>Hero Header Subtitle</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		string HeroHeaderSubtitle { get; }
+
+		/// <summary>Hero Header Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		string HeroHeaderTitle { get; }
+
+		/// <summary>Hero Overlay Color</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		string HeroOverlayColor { get; }
+	}
+
+	/// <summary>Hero Header</summary>
+	[PublishedModel("heroHeader")]
+	public partial class HeroHeader : PublishedContentModel, IHeroHeader
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new const string ModelTypeAlias = "heroHeader";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<HeroHeader, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public HeroHeader(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Hero Header Image: This is the Image Hero
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroHeaderImage")]
+		public virtual global::Umbraco.Core.Models.MediaWithCrops HeroHeaderImage => GetHeroHeaderImage(this);
+
+		/// <summary>Static getter for Hero Header Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public static global::Umbraco.Core.Models.MediaWithCrops GetHeroHeaderImage(IHeroHeader that) => that.Value<global::Umbraco.Core.Models.MediaWithCrops>("heroHeaderImage");
+
+		///<summary>
+		/// Hero Header Subtitle: This is a subtitle
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroHeaderSubtitle")]
+		public virtual string HeroHeaderSubtitle => GetHeroHeaderSubtitle(this);
+
+		/// <summary>Static getter for Hero Header Subtitle</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public static string GetHeroHeaderSubtitle(IHeroHeader that) => that.Value<string>("heroHeaderSubtitle");
+
+		///<summary>
+		/// Hero Header Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroHeaderTitle")]
+		public virtual string HeroHeaderTitle => GetHeroHeaderTitle(this);
+
+		/// <summary>Static getter for Hero Header Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public static string GetHeroHeaderTitle(IHeroHeader that) => that.Value<string>("heroHeaderTitle");
+
+		///<summary>
+		/// Hero Overlay Color: The color to give the overlay!
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroOverlayColor")]
+		public virtual string HeroOverlayColor => GetHeroOverlayColor(this);
+
+		/// <summary>Static getter for Hero Overlay Color</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public static string GetHeroOverlayColor(IHeroHeader that) => that.Value<string>("heroOverlayColor");
+	}
+
+	// Mixin Content Type with alias "navigation"
+	/// <summary>Navigation</summary>
+	public partial interface INavigation : IPublishedContent
+	{
+		/// <summary>Umbraco Navi Hide</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		bool UmbracoNaviHide { get; }
+	}
+
+	/// <summary>Navigation</summary>
+	[PublishedModel("navigation")]
+	public partial class Navigation : PublishedContentModel, INavigation
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new const string ModelTypeAlias = "navigation";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Navigation, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public Navigation(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Umbraco Navi Hide: If this checked then the page wont appear in menu
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("umbracoNaviHide")]
+		public virtual bool UmbracoNaviHide => GetUmbracoNaviHide(this);
+
+		/// <summary>Static getter for Umbraco Navi Hide</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public static bool GetUmbracoNaviHide(INavigation that) => that.Value<bool>("umbracoNaviHide");
 	}
 
 	/// <summary>Folder</summary>
