@@ -128,6 +128,15 @@ https://our.umbraco.com/Documentation/Fundamentals/Design/Stylesheets-Javascript
   </ul>
   
  
+  ## Nested Content
   
+  <ul>
+     <li>Create a Document Type without template</li>
+     <li>Set then as an Element Type</li>
+     <li>Set the fields (Link Text, Link Icon <fontawesome>, Link Url</li>
+     <li></li>
+     <li></li>
+     <li></li>
+  </ul>
   
   
