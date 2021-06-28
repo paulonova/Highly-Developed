@@ -115,13 +115,19 @@ https://our.umbraco.com/Documentation/Fundamentals/Design/Stylesheets-Javascript
   
   <hr>
   
-  # Crerate a new Project inside of this project (Highly Developed.Core)
+  ## Umbraco Navi Hide => To hide pages in NavBar
   
-  #### After project created, go to References and select Manage nuGet.
-  #### Install UmbracoCms.Web
-  #### After installed, right click in References and AddReference.
-  #### In Project, select the project Highly Developed and Add.
+  <ul>
+    <li>Create a Document Type named "Navigation"</li>
+    <li>Set Properti as Checkbox (true/false) whith name "Umbraco Navi Hide"</li>
+    <li>Go to Content Page and  add as a Composition</li>
+    <li>Go to the site you want to hide and check as true</li>
+    <li>Go to Partial Views NavBar.cshtml</li>
+    <li>Add the code:  @foreach(var page in homePage.Children.Where(w => w.IsVisible())){</li>
+    <li>Save</li>
+  </ul>
   
+ 
   
   
   
