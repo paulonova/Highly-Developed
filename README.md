@@ -134,9 +134,10 @@ https://our.umbraco.com/Documentation/Fundamentals/Design/Stylesheets-Javascript
      <li>Create a Document Type without template</li>
      <li>Set then as an Element Type</li>
      <li>Set the fields (Link Text, Link Icon <fontawesome>, Link Url</li>
-     <li></li>
-     <li></li>
-     <li></li>
+     <li>Create a new Composition, Element type</li>
+     <li>Create a Nested Content</li>
+     <li>In Template write: {{linkText}}</li>
+    <li>Go to Macro in settings and Allow to use Rich Text and Grid</li>
   </ul>
   
   
