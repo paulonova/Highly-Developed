@@ -5,7 +5,7 @@
     {
       "fieldSets": [
         {
-          "caption": null,
+          "caption": "",
           "sortOrder": 0,
           "id": "b60639c2-ff66-43ab-83ad-cdc3aabca033",
           "page": "00000000-0000-0000-0000-000000000000",
@@ -16,7 +16,7 @@
               "fields": [
                 {
                   "caption": "First Name",
-                  "tooltip": "Your first name",
+                  "tooltip": "",
                   "placeholder": null,
                   "cssClass": null,
                   "alias": "firstName",
@@ -37,8 +37,8 @@
                     "rules": []
                   },
                   "settings": {
-                    "Placeholder": "First Name",
-                    "DefaultValue": ""
+                    "DefaultValue": "",
+                    "Placeholder": "First Name"
                   },
                   "preValues": [],
                   "allowedUploadTypes": null,
@@ -46,7 +46,7 @@
                 },
                 {
                   "caption": "Last Name",
-                  "tooltip": "Your last name",
+                  "tooltip": "",
                   "placeholder": null,
                   "cssClass": null,
                   "alias": "lastName",
@@ -67,8 +67,8 @@
                     "rules": []
                   },
                   "settings": {
-                    "Placeholder": "Last Name",
-                    "DefaultValue": ""
+                    "DefaultValue": "",
+                    "Placeholder": "Last Name"
                   },
                   "preValues": [],
                   "allowedUploadTypes": null,
@@ -76,7 +76,7 @@
                 },
                 {
                   "caption": "Contact Email",
-                  "tooltip": "The Email",
+                  "tooltip": "",
                   "placeholder": null,
                   "cssClass": null,
                   "alias": "contactEmail",
@@ -97,16 +97,16 @@
                     "rules": []
                   },
                   "settings": {
-                    "Placeholder": "Email",
-                    "DefaultValue": ""
+                    "DefaultValue": "",
+                    "Placeholder": "Email"
                   },
                   "preValues": [],
                   "allowedUploadTypes": null,
                   "allowMultipleFileUploads": true
                 },
                 {
-                  "caption": "Contact Comments",
-                  "tooltip": "The Comment",
+                  "caption": "Comments",
+                  "tooltip": "",
                   "placeholder": null,
                   "cssClass": null,
                   "alias": "contactComments",
@@ -127,9 +127,9 @@
                     "rules": []
                   },
                   "settings": {
+                    "DefaultValue": "",
                     "Placeholder": "Message",
-                    "NumberOfRows": "3",
-                    "DefaultValue": ""
+                    "NumberOfRows": "2"
                   },
                   "preValues": [],
                   "allowedUploadTypes": null,
@@ -150,7 +150,13 @@
                   "regex": null,
                   "requiredErrorMessage": "Consent is required to store and process the data in this form.",
                   "invalidErrorMessage": null,
-                  "condition": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
                   "settings": {
                     "AcceptCopy": "Yes, I give permission to store and process my data"
                   },
@@ -161,10 +167,16 @@
               ]
             }
           ],
-          "condition": null
+          "condition": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "enabled": false,
+            "actionType": "Show",
+            "logicType": "All",
+            "rules": []
+          }
         }
       ],
-      "caption": null,
+      "caption": "Contact Form",
       "sortOrder": 0,
       "id": "00000000-0000-0000-0000-000000000000",
       "form": "00000000-0000-0000-0000-000000000000"
@@ -182,7 +194,7 @@
   "xPathOnSubmit": null,
   "manualApproval": false,
   "storeRecordsLocally": true,
-  "cssClass": null,
+  "cssClass": "contact-form",
   "disableDefaultStylesheet": false,
   "useClientDependency": false,
   "workflows": [

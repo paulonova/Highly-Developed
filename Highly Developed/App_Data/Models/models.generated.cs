@@ -17,8 +17,8 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a4c59917d19825ae")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "2357d378bee33490")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 namespace Umbraco.Web.PublishedModels
 {
@@ -281,6 +281,13 @@ namespace Umbraco.Web.PublishedModels
 		public virtual global::Umbraco.Core.PropertyEditors.ValueConverters.ImageCropperValue ArticleImage => this.Value<global::Umbraco.Core.PropertyEditors.ValueConverters.ImageCropperValue>("articleImage");
 
 		///<summary>
+		/// Article Related Content: Picker that allows us to associate this article with other ones
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("articleRelatedContent")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent> ArticleRelatedContent => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>>("articleRelatedContent");
+
+		///<summary>
 		/// Author: Author name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
@@ -311,7 +318,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>News Articles</summary>
 	[PublishedModel("newsArticles2")]
-	public partial class NewsArticles2 : PublishedContentModel
+	public partial class NewsArticles2 : PublishedContentModel, IHeroHeader
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -333,11 +340,39 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Hero Header Image: This is the Image Hero
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroHeaderImage")]
+		public virtual global::Umbraco.Core.Models.MediaWithCrops HeroHeaderImage => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroHeaderImage(this);
+
+		///<summary>
+		/// Hero Header Subtitle: This is a subtitle
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroHeaderSubtitle")]
+		public virtual string HeroHeaderSubtitle => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroHeaderSubtitle(this);
+
+		///<summary>
+		/// Hero Header Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroHeaderTitle")]
+		public virtual string HeroHeaderTitle => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroHeaderTitle(this);
+
+		///<summary>
+		/// Hero Overlay Color: The color to give the overlay!
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("heroOverlayColor")]
+		public virtual string HeroOverlayColor => global::Umbraco.Web.PublishedModels.HeroHeader.GetHeroOverlayColor(this);
 	}
 
 	/// <summary>Content Page</summary>
 	[PublishedModel("contentPage")]
-	public partial class ContentPage : PublishedContentModel, IHeroHeader, INavigation
+	public partial class ContentPage : PublishedContentModel, IHeroHeader, INavigation, IUsefulLinks
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -408,6 +443,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
 		[ImplementPropertyType("umbracoNaviHide")]
 		public virtual bool UmbracoNaviHide => global::Umbraco.Web.PublishedModels.Navigation.GetUmbracoNaviHide(this);
+
+		///<summary>
+		/// Link Nested Content: This is the nested content of links
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("linkNestedContent")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.UsefulLink> LinkNestedContent => global::Umbraco.Web.PublishedModels.UsefulLinks.GetLinkNestedContent(this);
 	}
 
 	// Mixin Content Type with alias "heroHeader"
@@ -545,6 +587,99 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Static getter for Umbraco Navi Hide</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
 		public static bool GetUmbracoNaviHide(INavigation that) => that.Value<bool>("umbracoNaviHide");
+	}
+
+	/// <summary>Useful Link</summary>
+	[PublishedModel("usefulLink")]
+	public partial class UsefulLink : PublishedElementModel
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new const string ModelTypeAlias = "usefulLink";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UsefulLink, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public UsefulLink(IPublishedElement content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Link Icon: The fontawesome class name
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("linkIcon")]
+		public virtual string LinkIcon => this.Value<string>("linkIcon");
+
+		///<summary>
+		/// Link Text: Text for the link
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("linkText")]
+		public virtual string LinkText => this.Value<string>("linkText");
+
+		///<summary>
+		/// Link Url: Url for the link
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("linkUrl")]
+		public virtual global::Umbraco.Web.Models.Link LinkUrl => this.Value<global::Umbraco.Web.Models.Link>("linkUrl");
+	}
+
+	// Mixin Content Type with alias "usefulLinks"
+	/// <summary>Useful Links</summary>
+	public partial interface IUsefulLinks : IPublishedContent
+	{
+		/// <summary>Link Nested Content</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.UsefulLink> LinkNestedContent { get; }
+	}
+
+	/// <summary>Useful Links</summary>
+	[PublishedModel("usefulLinks")]
+	public partial class UsefulLinks : PublishedContentModel, IUsefulLinks
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new const string ModelTypeAlias = "usefulLinks";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UsefulLinks, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public UsefulLinks(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Link Nested Content: This is the nested content of links
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		[ImplementPropertyType("linkNestedContent")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.UsefulLink> LinkNestedContent => GetLinkNestedContent(this);
+
+		/// <summary>Static getter for Link Nested Content</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.0")]
+		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.UsefulLink> GetLinkNestedContent(IUsefulLinks that) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.UsefulLink>>("linkNestedContent");
 	}
 
 	/// <summary>Folder</summary>

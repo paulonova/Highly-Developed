@@ -1,5 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
-@using ContentModels = Umbraco.Web.PublishedModels;
+@using Umbraco.Core.PropertyEditors.ValueConverters;
+
 @{
     var heroImage = Model.Value<IPublishedContent>("heroHeaderImage")?.Url ?? "/images/hero-image.jpg"; 
     var heroOverlayColor = Model.Value<string>("heroOverlayColor");
