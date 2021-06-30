@@ -1,0 +1,91 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.SearchPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using Umbraco.Core.PropertyEditors.ValueConverters;
+
+@{
+	Layout = "Main.cshtml";
+	var heroImage = Model.Value<IPublishedContent>("heroHeaderImage")?.Url ?? "/images/hero-image.jpg";
+	var searchOverlayColor = Model.Value<string>("heroOverlayColor");
+	
+	var searchQuery = Request.QueryString["query"];
+	IEnumerable<PublishedSearchResult> searchResults;
+	var resultsCount = 0;
+	
+	if(!string.IsNullOrEmpty(searchQuery)){
+	    searchResults = Umbraco.ContentQuery.Search(searchQuery, string.Empty, "InternalIndex")
+	    .Where(w => w.Content.IsDocumentType("newsArticles"));
+	    
+	    resultsCount = searchResults != null && searchResults.Any() ? searchResults.Count() : 0;
+	}else{
+	    searchResults = null;
+	}
+}
+
+@if(!string.IsNullOrEmpty(searchOverlayColor)){
+
+    <style>
+        .home-hero > .overlay{
+            background-color: #@searchOverlayColor;
+            opacity: 0.5;
+        }
+        
+        a, a:active{
+            color: #@searchOverlayColor;
+        }
+        
+        a:hover{
+            color: #@searchOverlayColor;
+            font-weight: 600;
+        }
+        
+    </style>
+}
+
+
+@* Render the serach box*@
+
+    <header class="jumbotron jumbotron-fluid home-hero" style="background-image:url('@heroImage')">
+        <div class="overlay">
+            <div class="inner">
+                <div class="container pt-5 pb-5">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        
+                        <form class="form-inline" action="@Model.Url" method="Get">
+                            <fieldset>
+                                <input type="search" class="form-control mr-sm-2" placeholder="Search.." name="query">
+                                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </header>
+
+    
+<section class="container">
+    <h1>Search Results</h1>
+    
+    @if(!string.IsNullOrEmpty(searchQuery)){
+        <div class="row">
+            <div class="col">
+                @if(resultsCount == 0 || searchResults == null){
+                <text>
+                    <p>No results were found for <a href="">@searchQuery  <i class="fas fa-bahai"></i> </a></p>
+                </text>
+                
+                }else{
+                    <text>
+                        <p>We found: @resultsCount results</p>
+                    </text>
+                    foreach(var result in searchResults){
+                        <h5><a href="@result.Content.Url"><i class="far fa-hand-point-right"></i> @result.Content.Name</a></h5>
+                    }
+                }
+            </div>
+        </div>
+    }
+    
+</section>

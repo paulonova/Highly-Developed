@@ -9,11 +9,28 @@
 @{
     
     var articles = Umbraco.ContentAtRoot().DescendantsOrSelfOfType("newsArticles2").FirstOrDefault();
-    
     var news = articles.Children;
+    
     if(!string.IsNullOrEmpty(Request.QueryString["cat"])){
         news = articles.Children.Where(w => w.Value<string[]>("categories").Contains(Request.QueryString["cat"]));
     }
+    
+    @*Pagination *@
+    
+    const int pageSize = 2;
+    var numPages = (int)Math.Ceiling((double)news.Count() / (double)pageSize);
+    var selectedPage = 0;
+    
+    if(!string.IsNullOrEmpty(Request.QueryString["page"])){
+        int.TryParse(Request.QueryString["page"], out selectedPage);
+        
+        if(selectedPage <= 0 || selectedPage > numPages){
+            selectedPage = 1;
+        }
+    }
+    
+    news = news.Skip((selectedPage - 1) * pageSize).Take(pageSize).ToList();
+    
     
     var tags = articles.Children.Select(w => w.Value<string[]>("categories"));
     var categoryList = new List<string>();
@@ -53,15 +70,30 @@
 	                                        <h4 class="card-title pb-25">@article.Name</h4>
 	                                        <p class="card-text">@article.Value("leadIn")</p>
 	                                    </div>
-	                                    
 	                                </div>
 	                            </a>
 	                        </div>
-   
                         }
                     </div>
-                    
                 </div>
+                @* Paging*@
+                @if(numPages > 1){
+                    <div class="row">
+                        <div class="col">
+                            <nav aria-label="Page navigation example">
+                              <ul class="pagination">
+                                <li class="page-item @(selectedPage <= 1 ? "disabled" : "")"><a class="page-link" href="@(Model.Url + "?page=" + (selectedPage - 1))">Previous</a></li>
+                                
+                                @for(int i=1; i <= numPages; i++){
+                                    <li class="page-item"><a class="page-link" href="@(Model.Url + "?page=" + i)">@i</a></li>
+                                }
+                                
+                                <li class="page-item @(selectedPage >= numPages ? "disabled" : "")"><a class="page-link" href="@(Model.Url + "?page=" + (selectedPage + 1))">Next</a></li>
+                              </ul>
+                            </nav>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
         
@@ -71,7 +103,11 @@
             <hr>
             <ul>
                 @foreach(var category in categoryList.OrderBy(o => o)){
-                    <li><a class="text-white" href="@Model.Url?cat=@category">@category</a></li>
+                    var activeClass="text-white";
+                    if(category == Request.QueryString["cat"]){
+                        activeClass = "active";
+                    }
+                    <li><a class="@activeClass" href="@Model.Url?cat=@category">@category</a></li>
                 }
                 <a class="btn btn-info mt-3 text-white" href="@Model.Url">Clear Filter</a>
             </ul>
